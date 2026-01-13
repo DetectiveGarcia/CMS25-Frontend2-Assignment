@@ -41,7 +41,7 @@ function App() {
       </div>
       <ul class="showcase">
         <li>
-          <div className="seat" onClick={() => {}}></div>
+          <div className="seat"></div>
           <small>N/A</small>
         </li>
         <li>
