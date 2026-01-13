@@ -2,8 +2,8 @@ export default function MovieSelector() {
 
     return (
         <>
-            <div class="movie-container">
-                <label for="movie">Pick a movie:</label>
+            <div className="movie-container">
+                <label htmlFor="movie">Pick a movie:</label>
                 <select name="movie" id="movie">
                     <option value="100">Fast and furious 6 (100 kr)</option>
                     <option value="50">The mummy returns (50 kr)</option>
@@ -11,7 +11,7 @@ export default function MovieSelector() {
                     <option value="40">Rampage (40 kr)</option>
                 </select>
             </div>
-            <ul class="showcase">
+            <ul className="showcase">
                 <li>
                     <div className="seat"></div>
                     <small>N/A</small>
