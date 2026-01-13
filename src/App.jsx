@@ -1,6 +1,33 @@
+import { useReducer } from "react";
 import "./App.css"
 
+function reducer(state, action){
+
+  const { type, payload } = action;
+
+  switch (type) {
+    case "Toggle Seat":
+      
+      return {
+        ...state,
+        seatOccupied: !state.seatOccupied
+      }
+  
+    default:
+      state;
+  }
+
+}
+
+const initialState = {
+  seatOccupied: false
+}
+
 function App() {
+
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+
   return (
     <>
       <div class="movie-container">
