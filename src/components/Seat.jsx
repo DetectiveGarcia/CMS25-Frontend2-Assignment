@@ -9,7 +9,7 @@ function reducer(state, action) {
 
       return {
         ...state,
-        seatOccupied: !state.seatOccupied
+        seatSelected: !state.seatSelected
       }
 
     default:
@@ -19,7 +19,8 @@ function reducer(state, action) {
 }
 
 const initialState = {
-  seatOccupied: false
+  seatOccupied: false,
+  seatSelected: false,
 }
 
 
@@ -28,7 +29,7 @@ export default function Seat() {
 
   return (
     <div
-      className={`${state.seatOccupied ? "seat occupied" : "seat"}`} 
+      className={`${state.seatSelected ? "seat selected" : "seat"}`} 
       onClick={() => {
         dispatch({
           type: "Toggle Seat",
