@@ -1,3 +1,5 @@
+import Movie from "../classes/Movie"
+
 export default function MovieSelector({ movies }) {
 
     return (
@@ -5,11 +7,7 @@ export default function MovieSelector({ movies }) {
             <div className="movie-container">
                 <label htmlFor="movie">Pick a movie:</label>
                 <select name="movie" id="movie">
-                    {movies && movies.map(movie => {
-                        return (
-                            <option value={movie.Price} key={movie.Title}>{`${movie.Title} (${movie.Price}kr)`}</option>
-                        )
-                    })}
+                    {movies && movies.map(movie => <Movie title={movie.Title} price={movie.Price} />)}
 
                 </select>
             </div>
