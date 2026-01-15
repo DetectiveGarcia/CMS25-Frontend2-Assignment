@@ -1,4 +1,4 @@
-import MovieClass from "../classes/MovieClass"
+import MovieOptions from "./MovieOptions"
 import { useEffect } from "react"
 
 export default function MovieSelector({ movies, dispatch }) {
@@ -13,7 +13,7 @@ export default function MovieSelector({ movies, dispatch }) {
             <div className="movie-container">
                 <label htmlFor="movie">Pick a movie:</label>
                 <select name="movie" id="movie">
-                    {movies && movies.map(movie => <MovieClass title={movie.title} price={movie.price} />)}
+                    {movies && movies.map(movie => <MovieOptions {...{ movie }} />)}
 
                 </select>
             </div>
