@@ -52,6 +52,7 @@ function App() {
     row5: [0, 1, 2, 3, 4, 5, 6, 7],
   };
 
+
   useEffect(() => {
 
 
@@ -59,7 +60,7 @@ function App() {
     const getData = async () => {
       try {
         const response = await fetch(
-          "https://gist.githubusercontent.com/aspcodenet/32a21ce9d8b8ccf19108a8a02883e9bb/raw/785f9bcb1527cb01e182d3fe40ffafd6fd00dac9/movies.json"
+          "https://localhost:7282/api/Movies"
         );
 
         if (!response.ok) {
@@ -68,7 +69,7 @@ function App() {
 
         const data = await response.json();
 
-        console.log(data);
+        // console.log(data);
 
         dispatch({
           type: "Get Movies",
