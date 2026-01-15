@@ -37,7 +37,8 @@ function reducer(state, action){
 let initialState = {
   selectedSeatsIds: [],
   movieList: [],
-  toggleBooking: false
+  toggleBooking: false,
+  movieSelected: {},
 }
 
 function App() {
@@ -85,7 +86,7 @@ function App() {
 
   return (
     <>
-      <MovieSelector movies={state.movieList} />
+      <MovieSelector movies={state.movieList} dispatch={dispatch} />
       <div className="container">
         <div className="screen"></div>
         <div className="row">
