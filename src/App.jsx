@@ -4,31 +4,37 @@ import "./App.css";
 import Seat from "./components/Seat";
 import { useEffect, useReducer } from "react";
 
-function reducer(state, action){
-  
+function reducer(state, action) {
   const { type, payload } = action;
-  
+
   switch (type) {
     case "Get Movies":
       return {
         ...state,
-        movieList: payload
-      }
-    case "Toggle Booking": 
-    return {
-      ...state,
-      toggleBooking: !state.toggleBooking
-    }
+        movieList: payload.movies,
+        movieSelected: payload.defaultMovieSelection.title
+      };
+    case "Toggle Booking":
+      return {
+        ...state,
+        toggleBooking: !state.toggleBooking,
+      };
     case "Toggle Seat":
-      const { seatId } = payload
+      const { seatId } = payload;
 
       const seatSelected = state.selectedSeatsIds.includes(seatId);
 
       return {
         ...state,
-        selectedSeatsIds: seatSelected ? state.selectedSeatsIds.filter(id => id !== seatId) : [...state.selectedSeatsIds, seatId]
-      }
-  
+        selectedSeatsIds: seatSelected
+          ? state.selectedSeatsIds.filter((id) => id !== seatId)
+          : [...state.selectedSeatsIds, seatId],
+      };
+    case "Movie Selected":
+      return {
+        ...state,
+        movieSelected: state.movieList.find((movie) => movie.id === payload),
+      };
     default:
       return state;
   }
@@ -38,8 +44,8 @@ let initialState = {
   selectedSeatsIds: [],
   movieList: [],
   toggleBooking: false,
-  movieSelected: {},
-}
+  movieSelected: null,
+};
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -53,11 +59,7 @@ function App() {
     row5: [0, 1, 2, 3, 4, 5, 6, 7],
   };
 
-
   useEffect(() => {
-
-
-
     const getData = async () => {
       try {
         const response = await fetch(
@@ -71,12 +73,17 @@ function App() {
 
         const data = await response.json();
 
-        // console.log(data);
+        console.log(data);
 
         dispatch({
           type: "Get Movies",
-          payload: data,
+          payload: {
+            defaultMovieSelection: data[0],
+            movies: data
+          },
         });
+
+
       } catch (error) {
         console.log(error);
       }
@@ -93,10 +100,9 @@ function App() {
         <div className="row">
           {/* {rows.row0.map((seat) => <Seat parentDispatch={dispatch} parentState={state} />)} */}
           {rows.row0.map((seat) => {
-            
-            const seatId = `row0-${seat}`
+            const seatId = `row0-${seat}`;
 
-            const selected = state.selectedSeatsIds.includes(seatId)
+            const selected = state.selectedSeatsIds.includes(seatId);
 
             return <Seat {...{ dispatch, seatId, selected }} />;
           })}
@@ -153,8 +159,14 @@ function App() {
         </div>
       </div>
       <p className="text">
-        You have selected <span id="count">{state.selectedSeatsIds.length}</span> seats for a price of $
-        <span id="total">0</span>
+        You have selected{" "}
+        <span id="count">{state.selectedSeatsIds.length}</span> seats for a
+        price of $
+        <span id="total">
+          {state.selectedSeatsIds.length > 0
+            ? `${state.movieSelected.price * state.selectedSeatsIds.length}`
+            : "0"}
+        </span>
       </p>
       <button
         onClick={() => {
