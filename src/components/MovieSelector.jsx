@@ -4,6 +4,7 @@ import { useEffect } from "react";
 export default function MovieSelector({ movies, dispatch }) {
 
 
+
   return (
     <>
       <div className="movie-container">
@@ -18,6 +19,7 @@ export default function MovieSelector({ movies, dispatch }) {
                 })
           }}>
             {movies && movies.map((movie) => <MovieOptions {...{ movie }} />)}
+            {/* {movies && movies.map((movie) => <MovieClass title={movie.title} price={movie.price} />)} */}
  
           </select>
       </div>
