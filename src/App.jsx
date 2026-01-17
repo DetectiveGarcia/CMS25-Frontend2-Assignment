@@ -11,8 +11,8 @@ function reducer(state, action) {
     case "Get Movies":
       return {
         ...state,
-        movieList: payload.movies,
-        movieSelected: payload.defaultMovieSelection.title
+        movieList: payload,
+        movieSelected: payload[0]
       };
     case "Toggle Booking":
       return {
@@ -33,7 +33,7 @@ function reducer(state, action) {
     case "Movie Selected":
       return {
         ...state,
-        movieSelected: state.movieList.find((movie) => movie.id === payload),
+        movieSelected: state.movieList.find((movie) => movie.id === payload)
       };
     default:
       return state;
@@ -77,10 +77,7 @@ function App() {
 
         dispatch({
           type: "Get Movies",
-          payload: {
-            defaultMovieSelection: data[0],
-            movies: data
-          },
+          payload: data
         });
 
 
@@ -163,7 +160,7 @@ function App() {
         <span id="count">{state.selectedSeatsIds.length}</span> seats for a
         price of $
         <span id="total">
-          {state.selectedSeatsIds.length > 0
+          {state.movieSelected
             ? `${state.movieSelected.price * state.selectedSeatsIds.length}`
             : "0"}
         </span>
