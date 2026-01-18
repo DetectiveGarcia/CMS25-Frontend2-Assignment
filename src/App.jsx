@@ -45,6 +45,7 @@ let initialState = {
   movieList: [],
   toggleBooking: false,
   movieSelected: null,
+  auditorium: null
 };
 
 function App() {
