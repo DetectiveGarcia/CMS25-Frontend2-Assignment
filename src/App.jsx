@@ -63,16 +63,16 @@ function App() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch(
+        const responseMovies = await fetch(
           // "https://localhost:7282/api/Movies"
           "https://localhost:7194/api/Movies"
         );
 
-        if (!response.ok) {
+        if (!responseMovies.ok) {
           throw new Error("Something wrong");
         }
 
-        const data = await response.json();
+        const data = await responseMovies.json();
 
         console.log(data);
 
@@ -80,6 +80,7 @@ function App() {
           type: "Get Movies",
           payload: data
         });
+
 
 
       } catch (error) {
