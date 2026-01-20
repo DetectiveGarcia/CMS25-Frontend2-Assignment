@@ -74,11 +74,11 @@ function App() {
         );
 
         if (!responseMovies.ok) {
-          throw new Error("Something wrong");
+          throw new Error("Something wrong with movies");
         }
 
         if (!responseAuditorium.ok) {
-          throw new Error("Something wrong");
+          throw new Error("Something wrong with auditorium");
         }
 
         const dataAuditorium = await responseAuditorium.json();
@@ -86,8 +86,6 @@ function App() {
 
         console.log(dataAuditorium);
         console.log(dataMovies);
-
-
 
         dispatch({
           type: "Get Movies",
