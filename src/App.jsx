@@ -84,14 +84,23 @@ function App() {
         const dataAuditorium = await responseAuditorium.json();
         const dataMovies = await responseMovies.json();
 
-        console.log(dataAuditorium);
-        console.log(dataMovies);
+        // console.log(dataAuditorium);
+        // console.log(dataMovies);
+
+        if(!window.localStorage.getItem("auditorium")){
+          window.localStorage.setItem("auditorium", JSON.stringify(dataAuditorium))
+        }
+
+        const auditorium = window.localStorage.getItem("auditorium")
+
+        console.log(JSON.parse(auditorium));
+        
 
         dispatch({
           type: "Get Movies",
           payload: {
             movies: dataMovies,
-            auditorium: dataAuditorium
+            auditorium: JSON.parse(auditorium)
           },
         });
       } catch (error) {
