@@ -11,7 +11,7 @@ function reducer(state, action) {
     case "Get Movies":
       return {
         ...state,
-        movieList: payload.movieList,
+        movieList: payload.movies,
         movieSelected: payload[0],
         auditorium: payload.auditorium
       };
