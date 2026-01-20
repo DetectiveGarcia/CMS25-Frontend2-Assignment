@@ -11,8 +11,9 @@ function reducer(state, action) {
     case "Get Movies":
       return {
         ...state,
-        movieList: payload,
-        movieSelected: payload[0]
+        movieList: payload.movieList,
+        movieSelected: payload[0],
+        auditorium: payload.auditorium
       };
     case "Toggle Booking":
       return {
@@ -33,7 +34,7 @@ function reducer(state, action) {
     case "Movie Selected":
       return {
         ...state,
-        movieSelected: state.movieList.find((movie) => movie.id === payload)
+        movieSelected: state.movieList.find((movie) => movie.id === payload),
       };
     default:
       return state;
@@ -45,7 +46,7 @@ let initialState = {
   movieList: [],
   toggleBooking: false,
   movieSelected: null,
-  auditorium: null
+  auditorium: null,
 };
 
 function App() {
@@ -65,24 +66,36 @@ function App() {
       try {
         const responseMovies = await fetch(
           // "https://localhost:7282/api/Movies"
-          "https://localhost:7194/api/Movies"
+          "https://localhost:7194/api/Movies",
+        );
+
+        const responseAuditorium = await fetch(
+          "https://localhost:7194/api/Auditorium",
         );
 
         if (!responseMovies.ok) {
           throw new Error("Something wrong");
         }
 
+        if (!responseAuditorium.ok) {
+          throw new Error("Something wrong");
+        }
+
+        const dataAuditorium = await responseAuditorium.json();
         const dataMovies = await responseMovies.json();
 
+        console.log(dataAuditorium);
         console.log(dataMovies);
+
+
 
         dispatch({
           type: "Get Movies",
-          payload: dataMovies
+          payload: {
+            movies: dataMovies,
+            auditorium: dataAuditorium
+          },
         });
-
-
-
       } catch (error) {
         console.log(error);
       }
