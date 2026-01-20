@@ -72,13 +72,13 @@ function App() {
           throw new Error("Something wrong");
         }
 
-        const data = await responseMovies.json();
+        const dataMovies = await responseMovies.json();
 
-        console.log(data);
+        console.log(dataMovies);
 
         dispatch({
           type: "Get Movies",
-          payload: data
+          payload: dataMovies
         });
 
 
