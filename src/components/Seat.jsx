@@ -1,19 +1,21 @@
 
 
-export default function Seat({ dispatch, seatId, selected }) {
+export default function Seat({ dispatch, seatId, selected, seat }) {
   
 
 
   return (
     <div
-      className={`${selected ? "seat selected" : "seat"}`} 
+      className={`${selected ? "seat selected" : "seat"} ${seat.occupied && "occupied"}`} 
       onClick={() => {
-        dispatch({
-          type: "Toggle Seat",
-          payload: {
-            seatId
-          }
-        });
+        if(!seat.occupied){
+          dispatch({
+            type: "Toggle Seat",
+            payload: {
+              seatId: seatId
+            }
+          });
+        }
       }}
     ></div>
   );
