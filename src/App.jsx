@@ -12,7 +12,7 @@ function reducer(state, action) {
     case "Get Movies":
       return {
         ...state,
-        movieList: payload.movies,
+        movieList: payload.movies.map(m => new Movie(m.id, m.title, m.price, m.poster)),
         movieSelected: payload.movies[0],
         auditorium: payload.auditorium
       };
@@ -61,13 +61,6 @@ function App() {
     row4: [{id: 0, occupied: false }, {id: 1, occupied: false }, {id: 2, occupied: false }, {id: 3, occupied: true }, {id: 4, occupied: true }, {id: 5, occupied: false }, {id: 6, occupied: false }, {id: 7, occupied: false }],
     row5: [{id: 0, occupied: false }, {id: 1, occupied: false }, {id: 2, occupied: false }, {id: 3, occupied: false }, {id: 4, occupied: true }, {id: 5, occupied: true }, {id: 6, occupied: true }, {id: 7, occupied: false }],
   };
-
-  const moviesObject = [
-    new Movie("Jackie Chan and the Chamber of Secrets", 150),
-    new Movie("Rush Hour IV", 110),
-    new Movie("Italia in Capuccino", 90),
-    new Movie("Inside your mom", 120)
-  ]
 
   useEffect(() => {
     const getData = async () => {
