@@ -4,6 +4,8 @@ import Movie from "./classes/MovieClass";
 import "./App.css";
 import Seat from "./components/Seat";
 import { useEffect, useReducer } from "react";
+import { NavLink } from "react-router";
+
 
 function reducer(state, action) {
   const { type, payload } = action;
@@ -120,6 +122,9 @@ function App() {
 
   return (
     <>
+      <NavLink to="/AdminPanel" end>
+        Admin
+      </NavLink>
       <MovieSelector movies={state.movieList} dispatch={dispatch} />
       <div className="container">
         <div className="screen"></div>
