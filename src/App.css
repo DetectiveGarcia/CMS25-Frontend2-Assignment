@@ -188,3 +188,12 @@ main {
   justify-content: space-between;
   height: 350px;
 }
+
+select{
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+}
+
+option{
+  font-family: "Poppins", sans-serif;
+}
