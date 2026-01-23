@@ -1,8 +1,6 @@
 import React from "react";
 
-async function increment(previousState, formData) {
-  return previousState + 1;
-}
+
 
 export const Get = () => {
   return (
