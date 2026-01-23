@@ -6,7 +6,7 @@ export const Delete = ({ movies }) => {
       <h2>Delete a movie</h2>
       <form>
         <select name="" id="">
-          <option value="">Hello</option>
+          {movies.map(m => <option key={m.title}>{m.title}</option>)}
         </select>
 
         <input type="submit" value="Delete" id="form-button" />
