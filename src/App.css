@@ -139,7 +139,7 @@ p.text span {
   display: flex;
   justify-content: space-evenly;
   padding-left: 0;
-    border: 1px solid #397f98;
+  border: 1px solid #397f98;
   border-radius: 5px;
   border-radius: 7px;
   text-align: center;
