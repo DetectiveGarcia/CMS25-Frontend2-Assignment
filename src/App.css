@@ -3,6 +3,7 @@
 * {
   box-sizing: border-box;
 }
+
 #root {
   font-family: "Poppins", sans-serif;
   display: flex;
@@ -116,4 +117,35 @@ p.text {
 
 p.text span {
   color: #6feaf6;
+}
+
+
+
+.crud-option {
+  list-style-type: none;
+  padding: 5px 18px;
+  border: 1px solid transparent;
+}
+
+.option-selected {
+  color: #6feaf6;
+  border-color: #6feaf6;
+  border-radius: 5px;
+
+}
+
+.crud-options {
+  width: 300px;
+  display: flex;
+  justify-content: space-evenly;
+  padding-left: 0;
+    border: 1px solid #397f98;
+  border-radius: 5px;
+  border-radius: 7px;
+  text-align: center;
+  background-color: #383862;
+}
+
+.crud-option:hover {
+  cursor: pointer;
 }
