@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router';
+import { Get } from './Admin/GET';
+import { Post } from './Admin/Post';
+import { Put } from './Admin/Put';
+import { Delete } from './Admin/Delete';
 
 const AdminPanel = () => {
 
+  const [currentOption, setCurrentOption] = useState("");
   const [crudOptions, setCrudOptions] = useState([
     {
       name: "GET",
@@ -38,11 +43,15 @@ const AdminPanel = () => {
             <li className={`crud-option ${option.selected && "option-selected" }`} onClick={() => {
 
               setCrudOptions(crudOptions.map(crudOption => crudOption.name === option.name ? {...crudOption, selected: true} : {...crudOption, selected: false}))
-              
+              setCurrentOption(crudOptions.find(crudOption => crudOption.name === option.name).name)
             }}>{option.name}</li>
           )
         })}
       </ul>
+        {currentOption === "GET" && <Get />}
+        {currentOption === "POST" && <Post />}
+        {currentOption === "PUT" && <Put />}
+        {currentOption === "DELETE" && <Delete />}
     </main>
   )
 }
