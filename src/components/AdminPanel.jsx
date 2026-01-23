@@ -8,6 +8,7 @@ import { Delete } from "./Admin/Delete";
 const AdminPanel = () => {
   const [currentOption, setCurrentOption] = useState("");
   const [movies, setMovies] = useState([]);
+  const [automaticSelectedMovie, setAutomaticSelectedMovie] = useState(null);
   const [crudOptions, setCrudOptions] = useState([
     {
       name: "GET",
@@ -30,7 +31,7 @@ const AdminPanel = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch("https://localhost:7282/api/Movies");
+        const response = await fetch("https://localhost:7194/api/Movies");
 
         if (!response.ok) {
           throw new Error("Something wrong with movies");
@@ -39,6 +40,8 @@ const AdminPanel = () => {
         const data = await response.json();
 
         setMovies(data);
+        setAutomaticSelectedMovie(data[0])
+        console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -59,9 +62,10 @@ const AdminPanel = () => {
       <main>
         <ul className="crud-options">
           {crudOptions &&
-            crudOptions.map((option, index) => {
+            crudOptions.map((option) => {
               return (
                 <li
+                  key={option.name}
                   className={`crud-option ${option.selected && "option-selected"}`}
                   onClick={() => {
                     setCrudOptions(
@@ -85,7 +89,7 @@ const AdminPanel = () => {
         </ul>
         {currentOption === "GET" && <Get {...{ movies }} />}
         {currentOption === "POST" && <Post {...{ movies }} />}
-        {currentOption === "PUT" && <Put {...{ movies }} />}
+        {currentOption === "PUT" && <Put {...{ movies, automaticSelectedMovie }} />}
         {currentOption === "DELETE" && <Delete {...{ movies }} />}
       </main>
     </>
