@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 98vh;
   margin: 0;
 }
 
@@ -119,8 +119,6 @@ p.text span {
   color: #6feaf6;
 }
 
-
-
 .crud-option {
   list-style-type: none;
   padding: 5px 18px;
@@ -131,7 +129,6 @@ p.text span {
   color: #6feaf6;
   border-color: #6feaf6;
   border-radius: 5px;
-
 }
 
 .crud-options {
@@ -144,39 +141,32 @@ p.text span {
   border-radius: 7px;
   text-align: center;
   background-color: #383862;
+  margin: 0;
 }
 
 .crud-option:hover {
   cursor: pointer;
 }
 
-
-section{
-    background-color: #41315ec4;
+section {
+  background-color: #41315ec4;
   border-radius: 20px;
- padding: 15px;
+  padding: 15px;
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
   gap: 5px;
   padding-top: 15px;
 }
 
-
-
-#form-id{
+.form-field {
   display: flex;
   justify-content: space-between;
 }
 
-#form-name{
-  display: flex;
-  justify-content: space-between;
-}
-
-#form-button{
+#form-button {
   margin-top: 15px;
   border-radius: 5px;
   height: 35px;
@@ -188,4 +178,11 @@ form{
   padding: 0 50px;
   align-self: center;
   border: 1px solid #6feaf6;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
 }
