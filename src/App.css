@@ -149,3 +149,43 @@ p.text span {
 .crud-option:hover {
   cursor: pointer;
 }
+
+
+#get{
+    background-color: #41315ec4;
+  border-radius: 20px;
+ padding: 15px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 15px;
+}
+
+
+
+#form-id{
+  display: flex;
+  justify-content: space-between;
+}
+
+#form-name{
+  display: flex;
+  justify-content: space-between;
+}
+
+#form-button{
+  margin-top: 15px;
+  border-radius: 5px;
+  height: 35px;
+  background-color: #383862;
+  color: #6feaf6;
+  font-weight: 100;
+  font-size: large;
+  font-family: "Poppins", sans-serif;
+  padding: 0 50px;
+  align-self: center;
+  border: 1px solid #6feaf6;
+}
