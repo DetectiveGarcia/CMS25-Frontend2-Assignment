@@ -4,14 +4,14 @@ import React from "react";
 
 export const Get = () => {
   return (
-    <section id="get">
+    <section>
       <h2>Get a movie</h2>
       <form>
-        <div id="form-id">
+        <div className="form-field">
           <label htmlFor="id">ID </label>
           <input type="text" name="id" id="id" />
         </div>
-        <div id="form-name">
+        <div className="form-field">
           <label htmlFor="name">Name </label>
           <input type="text" name="name" id="name" />
         </div>
