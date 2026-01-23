@@ -7,6 +7,7 @@ import { Delete } from "./Admin/Delete";
 
 const AdminPanel = () => {
   const [currentOption, setCurrentOption] = useState("");
+  const [movies, setMovies] = useState([]);
   const [crudOptions, setCrudOptions] = useState([
     {
       name: "GET",
@@ -25,6 +26,26 @@ const AdminPanel = () => {
       selected: false,
     },
   ]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await fetch("https://localhost:7282/api/Movies");
+
+        if (!response.ok) {
+          throw new Error("Something wrong with movies");
+        }
+
+        const data = await response.json();
+
+        setMovies(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getData();
+  }, []);
 
   return (
     <>
@@ -62,10 +83,10 @@ const AdminPanel = () => {
               );
             })}
         </ul>
-        {currentOption === "GET" && <Get />}
-        {currentOption === "POST" && <Post />}
-        {currentOption === "PUT" && <Put />}
-        {currentOption === "DELETE" && <Delete />}
+        {currentOption === "GET" && <Get {...{ movies }} />}
+        {currentOption === "POST" && <Post {...{ movies }} />}
+        {currentOption === "PUT" && <Put {...{ movies }} />}
+        {currentOption === "DELETE" && <Delete {...{ movies }} />}
       </main>
     </>
   );

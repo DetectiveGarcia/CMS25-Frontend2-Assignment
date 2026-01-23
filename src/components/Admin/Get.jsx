@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-export const Get = () => {
+export const Get = ({ movies }) => {
   return (
     <section>
       <h2>Get a movie</h2>

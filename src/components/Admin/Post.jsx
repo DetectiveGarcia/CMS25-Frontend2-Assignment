@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Post = () => {
+export const Post = ({ movies }) => {
   return (
     <section>
       <h2>Submit a movie</h2>

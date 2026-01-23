@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Put = () => {
+export const Put = ({ movies }) => {
   return (
     <section>
       <h2>Update a movie</h2>

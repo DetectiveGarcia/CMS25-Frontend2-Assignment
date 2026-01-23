@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Delete = () => {
+export const Delete = ({ movies }) => {
   return (
     <section>
       <h2>Delete a movie</h2>
