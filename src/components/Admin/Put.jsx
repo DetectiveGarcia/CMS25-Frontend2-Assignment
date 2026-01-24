@@ -1,18 +1,57 @@
 import React, { useEffect, useState } from "react";
 
-export const Put = ({
-  movies,
-  automaticSelectedMovie,
-  
-}) => {
+export const Put = ({ movies, automaticSelectedMovie }) => {
   const [movieSelected, setMovieSelected] = useState(null);
+
+
+  async function updateMovie() {
+    const confirmDeletion = confirm("Are you sure?");
+
+    if (!confirmDeletion) {
+      return;
+    }
+    try {
+      await fetch("https://localhost:7194/api/Movies", {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(movieSelected),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    window.location.reload();
+  }
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await fetch("https://localhost:7194/api/Movies");
+
+        if (!response.ok) {
+          throw new Error("Something wrong with database");
+        }
+
+        const data = await response.json();
+
+        setMovieSelected(data[0]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getData();
+
+  }, []);
 
   return (
     <section>
       <h2>Update a movie</h2>
-      <form>
+      <form action={updateMovie}>
         <select
-          name=""
+          name="movie"
           id=""
           onChange={(e) => {
             setMovieSelected(movies.find((m) => m.title === e.target.value));
@@ -30,7 +69,7 @@ export const Put = ({
             id="put-name"
             value={movieSelected?.title ?? automaticSelectedMovie.title}
             onChange={(e) => {
-              setMovieSelected({ ...movieSelected, title: e.target.value });
+              setMovieSelected({ ...movieSelected, title: e.target.value.trim() });
             }}
           />
         </div>
@@ -42,7 +81,7 @@ export const Put = ({
             id="put-price"
             value={movieSelected?.price ?? automaticSelectedMovie.price}
             onChange={(e) => {
-              setMovieSelected({ ...movieSelected, price: e.target.value });
+              setMovieSelected({ ...movieSelected, price: parseInt(e.target.value) });
             }}
           />
         </div>
@@ -54,7 +93,7 @@ export const Put = ({
             id="put-poster"
             value={movieSelected?.poster ?? automaticSelectedMovie.poster}
             onChange={(e) => {
-              setMovieSelected({ ...movieSelected, poster: e.target.value });
+              setMovieSelected({ ...movieSelected, poster: e.target.value.trim() });
             }}
           />
         </div>
