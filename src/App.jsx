@@ -71,8 +71,8 @@ function App() {
 
       try {
         const responseMovies = await fetch(
-          "https://localhost:7282/api/Movies"
-          // "https://localhost:7194/api/Movies",
+          // "https://localhost:7282/api/Movies"
+          "https://localhost:7194/api/Movies",
         );
 
         // const responseAuditorium = await fetch(
