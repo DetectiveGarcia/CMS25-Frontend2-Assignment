@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router";
-import { Get } from "./Admin/GET";
+import { Get } from "./Admin/Get";
 import { Post } from "./Admin/Post";
 import { Put } from "./Admin/Put";
 import { Delete } from "./Admin/Delete";
@@ -36,9 +36,7 @@ const AdminPanel = () => {
         if (!response.ok) {
           throw new Error("Something wrong with movies");
         }
-
         const data = await response.json();
-
         setMovies(data);
         setAutomaticSelectedMovie(data[0])
         console.log(data);
@@ -90,7 +88,7 @@ const AdminPanel = () => {
         {currentOption === "GET" && <Get {...{ movies }} />}
         {currentOption === "POST" && <Post {...{ movies }} />}
         {currentOption === "PUT" && <Put {...{ movies, automaticSelectedMovie }} />}
-        {currentOption === "DELETE" && <Delete {...{ movies }} />}
+        {currentOption === "DELETE" && <Delete {...{ movies, automaticSelectedMovie }} />}
       </main>
     </>
   );
