@@ -152,7 +152,6 @@ section {
   background-color: #41315ec4;
   border-radius: 20px;
   padding: 15px;
-
 }
 
 form {
@@ -189,11 +188,28 @@ main {
   height: 350px;
 }
 
-select{
+select {
   font-family: "Poppins", sans-serif;
   border-radius: 5px;
 }
 
-option{
+option {
   font-family: "Poppins", sans-serif;
+}
+
+button {
+  border-radius: 5px;
+  height: 35px;
+  background-color: #383862;
+  color: #6feaf6;
+  font-weight: 100;
+  font-size: large;
+  font-family: "Poppins", sans-serif;
+  align-self: center;
+  border: 1px solid #6feaf6;
+}
+
+#get-buttons{
+  display: flex;
+  justify-content: space-around;
 }
