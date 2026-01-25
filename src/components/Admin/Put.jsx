@@ -5,9 +5,9 @@ export const Put = ({ movies, automaticSelectedMovie }) => {
 
 
   async function updateMovie() {
-    const confirmDeletion = confirm("Are you sure?");
+    const confirmUpdate = confirm("Are you sure?");
 
-    if (!confirmDeletion) {
+    if (!confirmUpdate) {
       return;
     }
     try {
