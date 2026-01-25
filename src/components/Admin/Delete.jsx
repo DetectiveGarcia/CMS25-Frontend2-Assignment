@@ -23,6 +23,7 @@ export const Delete = ({ movies, automaticSelectedMovie }) => {
     } catch (error) {
       console.log(error);
     }
+    window.location.reload();
   }
 
   return (
