@@ -1,0 +1,28 @@
+{
+    "movies": [{
+        "id": 0,
+        "title": "harry potter och de vises sten",
+        "price": 150,
+        "poster": "https://imusic.b-cdn.net/images/item/original/157/7321979588157.jpg?harry-potter-2005-harry-potter-og-de-vises-sten-dvd&class=original&v=1447917789"
+    },
+    {
+        "id": 1,
+        "title": "john wick",
+        "price": 120,
+        "poster": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEge3UtsqQTzM_lvhCxwFD_yhJjM1b7eJjOpwSxX2DI-yrty-L0Ptn1W-rEHSc_DimRDEltI0MSvLzU1LZTMUg4ktYSc6r4Ub1hhnQJPgNGSnPy3aMQuTkORoLMBZWz_TvgIXfDzhtltHQZIN6z5FCslVsco94QeDMw7zQehM_C1qt0XpvIzQbzyaEPHpQ/s1280/John%20Wick%20Chapter%204%201.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Jurassic Park",
+        "price": 130,
+        "poster": "https://image.bokus.com/images/9781683835455_383x_jurassic-park-the-ultimate-visual-history"
+    },
+    {
+        "id": 3,
+        "title": "The Conjuring 4",
+        "price": 110,
+        "poster": "https://i0.wp.com/boingboing.net/wp-content/uploads/2025/07/Conjuring.jpg?fit=1&quality=60&ssl=1&resize=620%2C4000"
+    }
+],
+    "bookings": []
+}
