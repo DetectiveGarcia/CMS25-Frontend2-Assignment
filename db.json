@@ -13,13 +13,13 @@
     },
     {
         "id": 2,
-        "title": "Jurassic Park",
+        "title": "jurassic park",
         "price": 130,
         "poster": "https://image.bokus.com/images/9781683835455_383x_jurassic-park-the-ultimate-visual-history"
     },
     {
         "id": 3,
-        "title": "The Conjuring 4",
+        "title": "the conjuring 4",
         "price": 110,
         "poster": "https://i0.wp.com/boingboing.net/wp-content/uploads/2025/07/Conjuring.jpg?fit=1&quality=60&ssl=1&resize=620%2C4000"
     }
