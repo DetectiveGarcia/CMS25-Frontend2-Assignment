@@ -213,3 +213,33 @@ button {
   display: flex;
   justify-content: space-around;
 }
+
+input[type="submit"]{
+    border-radius: 5px;
+  height: 35px;
+  background-color: #383862;
+  color: #6feaf6;
+  font-weight: 100;
+  font-size: large;
+  font-family: "Poppins", sans-serif;
+  align-self: center;
+  border: 1px solid #6feaf6;
+}
+
+#booking-form{
+  /* border: 1px solid pink; */
+  border-radius: 10px;
+  padding: 50px 15px;
+  display: flex;
+  gap: 30px;
+  /* background-color: #12192e; */
+  background-color: #250a1d;
+}
+
+input[type="text"]{
+  border-radius: 5px;
+}
+
+button:hover{
+
+}
