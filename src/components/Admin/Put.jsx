@@ -11,7 +11,8 @@ export const Put = ({ movies, automaticSelectedMovie }) => {
       return;
     }
     try {
-      await fetch("https://localhost:7194/api/Movies", {
+      // await fetch("https://localhost:7194/api/Movies", {
+      await fetch("http://localhost:3001/movies", {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
@@ -28,7 +29,8 @@ export const Put = ({ movies, automaticSelectedMovie }) => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch("https://localhost:7194/api/Movies");
+        // const response = await fetch("https://localhost:7194/api/Movies");
+        const response = await fetch("http://localhost:3001/movies");
 
         if (!response.ok) {
           throw new Error("Something wrong with database");

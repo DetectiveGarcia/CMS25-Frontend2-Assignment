@@ -16,7 +16,7 @@ function reducer(state, action) {
         ...state,
         movieList: payload.movies.map(m => new Movie(m.id, m.title, m.price, m.poster)),
         movieSelected: payload.movies[0],
-        auditorium: payload.auditorium
+        // auditorium: payload.auditorium
       };
     case "Toggle Booking":
       return {
@@ -49,7 +49,7 @@ let initialState = {
   movieList: [],
   toggleBooking: false,
   movieSelected: null,
-  auditorium: null,
+  // auditorium: null,
 };
 
 function App() {
@@ -72,7 +72,8 @@ function App() {
       try {
         const responseMovies = await fetch(
           // "https://localhost:7282/api/Movies"
-          "https://localhost:7194/api/Movies",
+          // "https://localhost:7194/api/Movies",
+          "http://localhost:3001/movies"
         );
 
         // const responseAuditorium = await fetch(
@@ -107,7 +108,7 @@ function App() {
           type: "Get Movies",
           payload: {
             movies: dataMovies,
-            auditorium: rows
+            // auditorium: rows
           },
         });
       } catch (error) {

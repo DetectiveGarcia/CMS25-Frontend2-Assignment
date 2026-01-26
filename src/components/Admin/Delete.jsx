@@ -17,7 +17,8 @@ export const Delete = ({ movies, automaticSelectedMovie }) => {
     const movie = movies.find((m) => m.title == movieTitle);
 
     try {
-      await fetch(`https://localhost:7194/api/Movies/${movie.id}`, {
+      // await fetch(`https://localhost:7194/api/Movies/${movie.id}`, {
+      await fetch(`http://localhost:3001/movies/${movie.id}`, {
         method: "DELETE",
       });
     } catch (error) {

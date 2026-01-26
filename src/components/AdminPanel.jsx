@@ -31,7 +31,7 @@ const AdminPanel = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch("https://localhost:7194/api/Movies");
+        const response = await fetch("http://localhost:3001/movies");
 
         if (!response.ok) {
           throw new Error("Something wrong with movies");

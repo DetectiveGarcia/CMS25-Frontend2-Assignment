@@ -20,9 +20,10 @@ export const Post = ({ movies }) => {
     */
     try {
       
-      const response = await fetch("https://localhost:7194/api/Movies", {
+      const response = await fetch("http://localhost:3001/movies", {
         method: "POST",
         body: JSON.stringify({
+          id: movies.length + 1,
           title: movieTitle,
           price: moviePrice,
           poster: moviePoster
