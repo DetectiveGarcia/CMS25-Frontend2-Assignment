@@ -12,10 +12,13 @@ function reducer(state, action) {
 
   switch (type) {
     case "Get Movies":
+
+    const movies = payload.movies.map(m => new Movie(m.id, m.title, m.price, m.poster))
+
       return {
         ...state,
-        movieList: payload.movies.map(m => new Movie(m.id, m.title, m.price, m.poster)),
-        movieSelected: payload.movies[0],
+        movieList: movies,
+        movieSelected: movies[0],
         // auditorium: payload.auditorium
       };
     case "Toggle Booking":
