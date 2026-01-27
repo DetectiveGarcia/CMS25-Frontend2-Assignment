@@ -241,5 +241,9 @@ input[type="text"]{
 }
 
 button:hover{
+  cursor: pointer;
+}
 
+button:active{
+  opacity: 0.5;
 }
