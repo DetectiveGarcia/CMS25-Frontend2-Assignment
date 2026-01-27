@@ -7,7 +7,7 @@ const DisplayAllMovies = ({ movies }) => {
       <ul style={{ display: "flex", flexDirection: "column", paddingLeft: 0, gap: "10px" }}>
         {movies.map((m) => {
           return (
-            <li
+            <li key={m.id}
               style={{
                 backgroundImage: `url(${m.poster})`,
                 backgroundSize: "cover",
