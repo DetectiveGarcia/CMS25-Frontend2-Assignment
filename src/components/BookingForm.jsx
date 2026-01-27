@@ -1,7 +1,7 @@
 import React from "react";
 
 export const BookingForm = () => {
-  const sendBooking = (formData) => {
+  const sendBooking = async (formData) => {
     const inputName = formData.get("name");
     const inputTelephone = formData.get("telephone");
 
@@ -37,7 +37,7 @@ export const BookingForm = () => {
       return;
     }
 
-    
+
 
   };
 
