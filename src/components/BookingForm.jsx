@@ -6,38 +6,63 @@ export const BookingForm = () => {
     const inputTelephone = formData.get("telephone");
 
 
-    if(!inputName && !inputTelephone){
+    if (!inputName && !inputTelephone) {
       alert("Name and tlf.nr missing");
       return;
     }
 
-    if(!inputName || inputName === " "){
+    if (!inputName || inputName === " ") {
       alert("Name missing");
       return;
     }
 
-    if(!inputTelephone || inputTelephone === " "){
+    if (!inputTelephone || inputTelephone === " ") {
       alert("Telephone number missing")
       return;
     }
 
-    
-    if(inputName.split("").length < 2){
+
+    if (inputName.split("").length < 2) {
       alert("Name must be atleast 2 letters");
       return;
-    } 
+    }
 
-    if(!inputName.split(" ")[1]){
+    if (!inputName.split(" ")[1]) {
       alert("Please add both first name and last name");
       return;
     }
 
-    if(!inputTelephone.split("").length === 10){
+    if (!inputTelephone.split("").length === 10) {
       alert("Tlf.nr must be 10 letters");
       return;
     }
 
+    try {
 
+
+      const response = await fetch("http://localhost:3001/bookings", {
+        method: "POST",
+        body: JSON.stringify({
+          visitor: {
+            name: inputName,
+            telephone: inputTelephone
+          },
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+
+      if (!response.ok) {
+        alert("Booking not possible");
+        return;
+      }
+
+      alert("Thank you for you booking!");
+    } catch (error) {
+      console.log(error);
+      alert(error);
+    }
 
   };
 
@@ -45,7 +70,7 @@ export const BookingForm = () => {
   return (
     <>
       <form action={sendBooking} id="booking-form">
-        <h3 style={{ alignSelf: "center"}}>Book seats</h3>
+        <h3 style={{ alignSelf: "center" }}>Book seats</h3>
         <div className="form-field">
           <label htmlFor="name">Namn</label>
           <input type="text" name="name" id="" />
