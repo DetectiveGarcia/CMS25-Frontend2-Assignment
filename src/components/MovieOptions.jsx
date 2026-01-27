@@ -5,9 +5,9 @@ const MovieOptions = ({ movie }) => {
 
 
   return (
-    <>
-        <option value={movie.id} key={movie.title} >{`${movie.title} (${movie.price}kr)`}</option>;
-    </>
+
+    <option value={movie.id} key={movie.title} >{`${movie.title} (${movie.price}kr)`}</option>
+
   )
 }
 
