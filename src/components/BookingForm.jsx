@@ -2,22 +2,12 @@ import React from "react";
 
 export const BookingForm = () => {
   const sendBooking = async (formData) => {
-    const inputName = formData.get("name");
-    const inputTelephone = formData.get("telephone");
+    const inputName = formData.get("name").trim();
+    const inputTelephone = formData.get("telephone").trim();
 
 
     if (!inputName && !inputTelephone) {
       alert("Name and tlf.nr missing");
-      return;
-    }
-
-    if (!inputName || inputName === " ") {
-      alert("Name missing");
-      return;
-    }
-
-    if (!inputTelephone || inputTelephone === " ") {
-      alert("Telephone number missing")
       return;
     }
 
@@ -32,10 +22,12 @@ export const BookingForm = () => {
       return;
     }
 
-    if (!inputTelephone.split("").length === 10) {
-      alert("Tlf.nr must be 10 letters");
+    const digits = inputTelephone.replace(/\D/g, "");
+    if (digits.length !== 10) {
+      alert("Tlf.nr must be 10 digits");
       return;
     }
+
 
     try {
 
