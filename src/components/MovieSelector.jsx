@@ -1,5 +1,4 @@
 import MovieOptions from "./MovieOptions";
-import { useEffect } from "react";
 
 export default function MovieSelector({ movies, dispatch }) {
 
