@@ -31,7 +31,13 @@ export const BookingForm = () => {
       alert("Please add both first name and last name");
       return;
     }
-   
+
+    if(!inputTelephone.split("").length === 10){
+      alert("Tlf.nr must be 10 letters");
+      return;
+    }
+
+    
 
   };
 
