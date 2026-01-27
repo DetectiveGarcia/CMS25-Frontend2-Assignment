@@ -12,7 +12,7 @@ export const Put = ({ movies, automaticSelectedMovie }) => {
     }
     try {
       // await fetch("https://localhost:7194/api/Movies", {
-      await fetch("http://localhost:3001/movies", {
+      await fetch(`http://localhost:3001/movies/${movieSelected.id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
