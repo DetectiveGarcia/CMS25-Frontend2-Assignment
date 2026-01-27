@@ -5,18 +5,36 @@ export const BookingForm = () => {
     const inputName = formData.get("name");
     const inputTelephone = formData.get("telephone");
 
-    console.log(inputName);
-    console.log(inputTelephone);
+
+    if(!inputName && !inputTelephone){
+      alert("Name and tlf.nr missing");
+      return;
+    }
+
+    if(!inputName || inputName === " "){
+      alert("Name missing");
+      return;
+    }
+
+    if(!inputTelephone || inputTelephone === " "){
+      alert("Telephone number missing")
+      return;
+    }
+
+    
+    if(inputName.split("").length < 2){
+      alert("Name must be atleast 2 letters");
+      return;
+    } 
+
+    if(!inputName.split(" ")[1]){
+      alert("Please add both first name and last name");
+      return;
+    }
+   
+
   };
 
-  // class Movie{
-  //     constructor(poster, price, title, year){
-  //         this.poster = poster;
-  //         this.price = price;
-  //         this.title = title;
-  //         this.year = year;
-  //     }
-  // }
 
   return (
     <>
