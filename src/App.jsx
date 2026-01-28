@@ -126,7 +126,7 @@ function App() {
 
   return (
     <>
-      <NavLink to="/AdminPanel" end>
+      <NavLink to="/admin" end>
         Admin
       </NavLink>
       <MovieSelector movies={state.movieList} dispatch={dispatch} />
