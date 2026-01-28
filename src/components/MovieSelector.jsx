@@ -17,7 +17,7 @@ export default function MovieSelector({ movies, dispatch }) {
                     payload: e.target.value
                 })
           }}>
-            {movies && movies.map((movie) => <MovieOptions {...{ movie }} />)}
+            {movies && movies.map((movie) => <MovieOptions key={movie.id} {...{ movie }} />)}
             {/* {movies && movies.map((movie) => <MovieClass title={movie.title} price={movie.price} />)} */}
  
           </select>
