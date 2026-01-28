@@ -7,12 +7,11 @@ import AdminPanel from './components/AdminPanel.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/AdminPanel" element={<AdminPanel />} />
-      
-    </Routes>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/admin" element={<AdminPanel />} />
+      </Routes>
     </BrowserRouter>
   </StrictMode>,
 )
